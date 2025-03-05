@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+
+<style>
+    #image {
+        margin-top: 20px;
+    }
+
+    #bt {
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <!-- event no : 01  -->
+    <button id="btn1">Click me to change color </button>
+    <h1 id="head1"> CLICK BUTTON TO CHANGE BACKGROUND COLOR</h1>
+
+    <!-- event no : 02   -->
+    <button onclick="changeheading()">Click here to change heading</button>
+    <p id="p1">Heading 1</p>
+
+    <!-- event no: 03 -->
+    <button onclick="borderonimage()">Click here to give border</button>
+    <img id="image" src="image.jpg" alt="" width="990" height="500">
+
+    <!-- event no: 04 -->
+    <button id="bt" onclick="removeBorder()">Remove Border</button>
+
+    <!-- event no: 05 -->
+    <br>
+    <button onclick="show()">Show</button>
+    <button onclick="hide()">Hide</button>
+    <div class="div" id="para">Lorem ipsum dolor, sit amet consectetur adipisicing elit...</div>
+
+    <!-- event no: 06 -->
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:goldenrod; width:120px; height: 20px; padding: 40px; margin-top: 20px;">
+        Mouse Over me
+    </div>
+
+    <!-- event no: 07 -->
+    <ul id="WritingTools">
+        <li>Pen</li>
+        <li>Pencil</li>
+        <li id="cp">Color Pencils</li>
+    </ul>
+    <p>Click the button to delete an item in the list</p>
+    <button onclick="myMethod()">Delete</button>
+
+    <!-- event no: 08 -->
+    <p>Click the button to append an item to the end of the list</p>
+    <button onclick="mymethod()">Append</button>
+
+    <!-- event no: 09 -->
+    <br>
+    <button onclick="changeColor()">Change Color</button>
+    <p id="par">Hello Script</p>
+
+    <!-- event no: 10 -->
+    <br>
+    <button ondblclick="changeText()">Double Click to Change Text</button>
+    <p id="doubleClickPara">Double-click the button to change this text.</p>
+
+    <!-- event no: 11 -->
+    
+<br>
+<input type="text" id="pasteInput">
+
+    <!-- event no: 12 -->
+    <script>
+        // event no: 01 
+        var a = document.querySelector("#head1");
+        a.style.backgroundColor = "cyan";
+        btn1.addEventListener("click", () => {
+            a.style.backgroundColor = "blue";
+        });
+
+        // event no: 02 
+        function changeheading() {
+            document.getElementById("p1").innerHTML = "NEW HEADING";
+        }
+
+        // event no: 03 
+        function borderonimage() {
+            document.getElementById("image").style.border = "9px solid black";
+        }
+
+        // event no: 04 
+        function removeBorder() {
+            document.getElementById("image").style.border = "none";
+        }
+
+        // event no: 05 
+        function show() {
+            document.getElementById("para").style.display = "block";
+        }
+
+        function hide() {
+            document.getElementById("para").style.display = "none";
+        }
+
+        // event no: 06 
+        function mOver(obj) {
+            obj.innerHTML = "Cursor is on DIV";
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "Bring cursor here";
+        }
+
+        // event no: 07  
+        function myMethod() {
+            var ele = document.getElementById("cp");
+            ele.parentNode.removeChild(ele);
+        }
+
+        // event no: 08  
+        function mymethod() {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode("Color Pencil");
+            node.appendChild(textnode);
+            document.getElementById("WritingTools").appendChild(node);
+        }
+
+        // event no: 09 
+        function changeColor() {
+            document.getElementById("par").style.color = "red";
+        }
+
+        // event no: 10 
+        function changeText() {
+            document.getElementById("doubleClickPara").innerHTML = "Text changed on double-click!";
+        }
+
+        // event no: 11 
+        document.getElementById("pasteInput").onpaste = function () {
+        alert("Pasting is not allowed!");
+        return false;
+    };
+
+
+        // event no: 12
+        window.onload = function () {
+            alert("Page has fully loaded!");
+        };
+    </script>
+
+</body>
+
+</html>
